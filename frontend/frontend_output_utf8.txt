@@ -1,0 +1,38 @@
+﻿node.exe : npm error 
+Missing script: "start"
+At C:\Program 
+Files\nodejs\npm.ps1:29 
+char:3
++   & $NODE_EXE 
+$NPM_CLI_JS $args
++   ~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~
+    + CategoryInfo       
+       : NotSpecified:   
+  (npm error Missing s   
+ cript: "start":Strin    
+g) [], RemoteExcepti    
+on
+    + FullyQualifiedErro 
+   rId : NativeCommandE  
+  rror
+ 
+npm error
+npm error Did you mean 
+one of these?
+npm error   npm star # 
+Mark your favorite 
+packages
+npm error   npm stars # 
+View packages marked as 
+favorites
+npm error
+npm error To see a list 
+of scripts, run:
+npm error   npm run
+npm error A complete log 
+of this run can be found 
+in: C:\Users\Lenov\AppDat
+a\Local\npm-cache\_logs\2
+026-04-08T07_16_08_420Z-d
+ebug-0.log

@@ -1,0 +1,95 @@
+﻿[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< com.ecommerce:ecommerce-backend >-------------------
+[INFO] Building ecommerce-backend 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:3.2.3:run (default-cli) > test-compile @ ecommerce-backend >>>
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ ecommerce-backend ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ ecommerce-backend ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ ecommerce-backend ---
+[INFO] skip non existing resourceDirectory D:\Ecommerce\backend\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ ecommerce-backend ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] <<< spring-boot:3.2.3:run (default-cli) < test-compile @ ecommerce-backend <<<
+[INFO] 
+[INFO] 
+[INFO] --- spring-boot:3.2.3:run (default-cli) @ ecommerce-backend ---
+[INFO] Attaching agents: []
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.3)
+
+2026-04-08T12:33:25.550+05:30  INFO 14976 --- [           main] com.ecommerce.EcommerceApplication       : Starting EcommerceApplication using Java 17.0.12 with PID 14976 (D:\Ecommerce\backend\target\classes started by Lenov in D:\Ecommerce\backend)
+2026-04-08T12:33:25.553+05:30  INFO 14976 --- [           main] com.ecommerce.EcommerceApplication       : No active profile set, falling back to 1 default profile: "default"
+2026-04-08T12:33:26.447+05:30  INFO 14976 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-08T12:33:26.513+05:30  INFO 14976 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 61 ms. Found 5 JPA repository interfaces.
+2026-04-08T12:33:27.132+05:30  INFO 14976 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-04-08T12:33:27.144+05:30  INFO 14976 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-04-08T12:33:27.144+05:30  INFO 14976 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2026-04-08T12:33:27.210+05:30  INFO 14976 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-04-08T12:33:27.211+05:30  INFO 14976 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1606 ms
+2026-04-08T12:33:27.344+05:30  INFO 14976 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-08T12:33:27.390+05:30  INFO 14976 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2026-04-08T12:33:27.422+05:30  INFO 14976 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-04-08T12:33:27.581+05:30  INFO 14976 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-08T12:33:27.602+05:30  INFO 14976 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-04-08T12:33:32.707+05:30  INFO 14976 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@40b31a16
+2026-04-08T12:33:32.709+05:30  INFO 14976 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-04-08T12:33:33.434+05:30  WARN 14976 --- [           main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-08T12:33:34.768+05:30  INFO 14976 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: create table app_users (id bigserial not null, address varchar(255), city varchar(255), email varchar(255) not null, full_name varchar(255), is_verified boolean not null, password varchar(255) not null, phone_number varchar(255), role varchar(255) not null check (role in ('ROLE_USER','ROLE_ADMIN')), state varchar(255), username varchar(255) not null, verification_code varchar(255), zip_code varchar(255), primary key (id))
+Hibernate: create table cart_items (id bigserial not null, quantity integer, product_id bigint not null, user_id bigint not null, primary key (id))
+Hibernate: create table order_items (id bigserial not null, price numeric(38,2), quantity integer, order_id bigint not null, product_id bigint not null, primary key (id))
+Hibernate: create table orders (id bigserial not null, city varchar(255), created_at timestamp(6), payment_method varchar(255), phone_number varchar(255), shipping_address varchar(255), state varchar(255), status varchar(255) check (status in ('CREATED','PAID','PENDING','SHIPPED','DELIVERED','CANCELLED','FAILED')), total_amount numeric(38,2), zip_code varchar(255), user_id bigint not null, primary key (id))
+Hibernate: create table product_image_gallery (product_id bigint not null, image_gallery varchar(255))
+Hibernate: create table products (id bigserial not null, active boolean not null, category varchar(255), created_at timestamp(6), description varchar(255), image_url varchar(255), name varchar(255), price numeric(38,2), rating float(53), review_count integer, stock integer check (stock>=0), primary key (id))
+Hibernate: create table wishlist_items (id bigserial not null, product_id bigint not null, user_id bigint not null, primary key (id))
+Hibernate: alter table if exists app_users drop constraint if exists UK_4vj92ux8a2eehds1mdvmks473
+2026-04-08T12:33:38.943+05:30  WARN 14976 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2026-04-08T12:33:38.943+05:30  WARN 14976 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "uk_4vj92ux8a2eehds1mdvmks473" of relation "app_users" does not exist, skipping
+Hibernate: alter table if exists app_users add constraint UK_4vj92ux8a2eehds1mdvmks473 unique (email)
+Hibernate: alter table if exists app_users drop constraint if exists UK_spsnwr241e9k9c8p5xl4k45ih
+2026-04-08T12:33:39.841+05:30  WARN 14976 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2026-04-08T12:33:39.842+05:30  WARN 14976 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "uk_spsnwr241e9k9c8p5xl4k45ih" of relation "app_users" does not exist, skipping
+Hibernate: alter table if exists app_users add constraint UK_spsnwr241e9k9c8p5xl4k45ih unique (username)
+Hibernate: alter table if exists cart_items add constraint FK1re40cjegsfvw58xrkdp6bac6 foreign key (product_id) references products
+Hibernate: alter table if exists cart_items add constraint FK82ftrw67f4lmas1cbfqn8wqpc foreign key (user_id) references app_users
+Hibernate: alter table if exists order_items add constraint FKbioxgbv59vetrxe0ejfubep1w foreign key (order_id) references orders
+Hibernate: alter table if exists order_items add constraint FKocimc7dtr037rh4ls4l95nlfi foreign key (product_id) references products
+Hibernate: alter table if exists orders add constraint FKrg873cdvpd23vrtmqygifcdwa foreign key (user_id) references app_users
+Hibernate: alter table if exists product_image_gallery add constraint FKr05mvv6dlj66agupo5afk2lon foreign key (product_id) references products
+Hibernate: alter table if exists wishlist_items add constraint FKqxj7lncd242b59fb78rqegyxj foreign key (product_id) references products
+Hibernate: alter table if exists wishlist_items add constraint FKajgq4cffbb9i4tmoy4sojqhag foreign key (user_id) references app_users
+2026-04-08T12:33:43.450+05:30  INFO 14976 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-08T12:33:44.474+05:30  WARN 14976 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-08T12:33:44.809+05:30  INFO 14976 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@62c02089, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3359217d, org.springframework.security.web.context.SecurityContextHolderFilter@71d0ad00, org.springframework.security.web.header.HeaderWriterFilter@74214ac3, org.springframework.web.filter.CorsFilter@25ee3cd6, org.springframework.security.web.authentication.logout.LogoutFilter@74b13aa, com.ecommerce.security.AuthTokenFilter@d62feaf, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2e549515, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2c34ce24, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@732ae29c, org.springframework.security.web.session.SessionManagementFilter@6238b10a, org.springframework.security.web.access.ExceptionTranslationFilter@59eb987a, org.springframework.security.web.access.intercept.AuthorizationFilter@49231d79]
+2026-04-08T12:33:45.185+05:30  INFO 14976 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2026-04-08T12:33:45.195+05:30  INFO 14976 --- [           main] com.ecommerce.EcommerceApplication       : Started EcommerceApplication in 19.952 seconds (process running for 20.267)
+Hibernate: select count(*) from products p1_0
+Hibernate: insert into products (active,category,created_at,description,image_url,name,price,rating,review_count,stock) values (?,?,?,?,?,?,?,?,?,?)
+Hibernate: insert into products (active,category,created_at,description,image_url,name,price,rating,review_count,stock) values (?,?,?,?,?,?,?,?,?,?)
+Hibernate: insert into products (active,category,created_at,description,image_url,name,price,rating,review_count,stock) values (?,?,?,?,?,?,?,?,?,?)
+Hibernate: insert into products (active,category,created_at,description,image_url,name,price,rating,review_count,stock) values (?,?,?,?,?,?,?,?,?,?)
+Hibernate: insert into products (active,category,created_at,description,image_url,name,price,rating,review_count,stock) values (?,?,?,?,?,?,?,?,?,?)
+Hibernate: select count(*) from app_users u1_0
+Hibernate: insert into app_users (address,city,email,full_name,is_verified,password,phone_number,role,state,username,verification_code,zip_code) values (?,?,?,?,?,?,?,?,?,?,?,?)
+Hibernate: insert into app_users (address,city,email,full_name,is_verified,password,phone_number,role,state,username,verification_code,zip_code) values (?,?,?,?,?,?,?,?,?,?,?,?)
+Hibernate: select u1_0.id,u1_0.address,u1_0.city,u1_0.email,u1_0.full_name,u1_0.is_verified,u1_0.password,u1_0.phone_number,u1_0.role,u1_0.state,u1_0.username,u1_0.verification_code,u1_0.zip_code from app_users u1_0 where u1_0.email=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.city,u1_0.email,u1_0.full_name,u1_0.is_verified,u1_0.password,u1_0.phone_number,u1_0.role,u1_0.state,u1_0.username,u1_0.verification_code,u1_0.zip_code from app_users u1_0 where u1_0.id=?
+Hibernate: update app_users set address=?,city=?,email=?,full_name=?,is_verified=?,password=?,phone_number=?,role=?,state=?,username=?,verification_code=?,zip_code=? where id=?
+2026-04-08T12:33:52.558+05:30  INFO 14976 --- [           main] com.ecommerce.config.DataInitializer     : Updated existing admin account: pansarepriti09@gmail.com
