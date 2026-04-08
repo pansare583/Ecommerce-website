@@ -63,6 +63,7 @@ public class SecurityConfig {
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth ->
                                 auth.requestMatchers("/auth/**").permitAll()
+                                .requestMatchers("/api/public/**").permitAll()
                                 .requestMatchers("/swagger-ui/**", "/swagger-ui.html", "/v3/api-docs/**", "/api-docs/**").permitAll()
                                 .requestMatchers(HttpMethod.GET, "/api/products", "/api/products/**").permitAll()
                                 .requestMatchers(HttpMethod.POST, "/api/newsletter/subscribe", "/api/contact").permitAll()
