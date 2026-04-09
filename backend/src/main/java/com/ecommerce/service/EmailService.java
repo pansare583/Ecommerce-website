@@ -97,8 +97,9 @@ public class EmailService {
             helper.setSubject(subject);
             helper.setText(html, true);
             mailSender.send(message);
-        } catch (MessagingException e) {
-            System.err.println("CRITICAL: Failed to send HTML email to " + to + ": " + e.getMessage());
+        } catch (Exception e) {
+            System.err.println("CRITICAL EMAIL ERROR: Failed to send email to " + to);
+            e.printStackTrace(); // यामुळे आपल्याला पूर्ण एरर डिटेल्स मिळतील
         }
     }
 }
