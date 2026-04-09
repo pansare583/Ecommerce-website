@@ -1,13 +1,15 @@
 import axios from 'axios';
 
-// Use relative base URLs — Vite proxy routes them to http://localhost:8080
+const apiBaseUrl = import.meta.env.VITE_API_URL || '/api';
+const authBaseUrl = import.meta.env.VITE_AUTH_URL || '/auth';
+
 const api = axios.create({
-  baseURL: '/api',
+  baseURL: apiBaseUrl,
   headers: { 'Content-Type': 'application/json' },
 });
 
 export const authApi = axios.create({
-  baseURL: '/auth',
+  baseURL: authBaseUrl,
   headers: { 'Content-Type': 'application/json' },
 });
 
