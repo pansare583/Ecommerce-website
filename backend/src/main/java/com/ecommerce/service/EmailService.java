@@ -14,7 +14,7 @@ public class EmailService {
     @Autowired
     private JavaMailSender mailSender;
 
-    //@Async
+    @Async
     public void sendVerificationEmail(String to, String code) {
         String html = "<html><body style='font-family: Arial, sans-serif; padding: 20px;'>"
                 + "<div style='max-width: 600px; margin: auto; border: 1px solid #eee; padding: 20px; border-radius: 10px;'>"
@@ -27,7 +27,7 @@ public class EmailService {
         sendHtmlEmail(to, "Trendify - Verify Your Account", html);
     }
 
-    //@Async
+    @Async
     public void sendLoginOtp(String to, String code) {
         String html = "<html><body style='font-family: Arial, sans-serif; padding: 20px;'>"
                 + "<div style='max-width: 600px; margin: auto; border: 1px solid #eee; padding: 20px; border-radius: 10px;'>"
@@ -40,7 +40,7 @@ public class EmailService {
         sendHtmlEmail(to, "Trendify - Login Verification Code", html);
     }
 
-    //@Async
+    @Async
     public void sendOrderConfirmation(String to, com.ecommerce.dto.OrderDTO order) {
         StringBuilder itemsHtml = new StringBuilder();
         for (com.ecommerce.dto.OrderItemDTO item : order.getItems()) {
@@ -75,7 +75,7 @@ public class EmailService {
         sendHtmlEmail(to, "Trendify - Order Receipt #" + order.getId(), html);
     }
 
-    //@Async
+    @Async
     public void sendNewsletterWelcome(String to) {
         String html = "<html><body style='font-family: Arial, sans-serif; padding: 20px;'>"
                 + "<div style='max-width: 600px; margin: auto; border: 1px solid #eee; padding: 20px; border-radius: 10px;'>"
