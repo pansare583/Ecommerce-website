@@ -92,23 +92,23 @@ const Register = () => {
           {error && <div className="alert alert-error"><Shield size={15} /> {error}</div>}
 
           {step === 1 && (
-            <form onSubmit={handleSignup}>
+            <form onSubmit={handleSignup} autoComplete="off">
               <div className="form-group">
                 <label className="form-label inline-icon"><User size={13} /> Username</label>
                 <input type="text" className="form-input" placeholder="Choose a unique name"
-                  value={formData.username} onChange={e => setFormData({ ...formData, username: e.target.value })} required />
+                  value={formData.username} onChange={e => setFormData({ ...formData, username: e.target.value })} required autoComplete="off" />
               </div>
               <div className="form-group">
                 <label className="form-label inline-icon"><Mail size={13} /> Email Address</label>
                 <input type="email" className="form-input" placeholder="name@example.com"
-                  value={formData.email} onChange={e => setFormData({ ...formData, email: e.target.value })} required />
+                  value={formData.email} onChange={e => setFormData({ ...formData, email: e.target.value })} required autoComplete="off" />
               </div>
               <div className="form-group">
                 <label className="form-label inline-icon"><Lock size={13} /> Password</label>
                 <div style={{ position: 'relative' }}>
                   <input type={showPassword ? 'text' : 'password'} className="form-input" 
                     placeholder="Min 8 characters" value={formData.password} 
-                    onChange={e => setFormData({ ...formData, password: e.target.value })} required />
+                    onChange={e => setFormData({ ...formData, password: e.target.value })} required autoComplete="new-password" />
                   <button type="button" onClick={() => setShowPassword(!showPassword)} className="btn-icon-inside">
                     {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
                   </button>
@@ -119,7 +119,7 @@ const Register = () => {
                 <div style={{ position: 'relative' }}>
                   <input type={showConfirmPassword ? 'text' : 'password'} className="form-input" 
                     placeholder="Retype your password" value={formData.confirmPassword} 
-                    onChange={e => setFormData({ ...formData, confirmPassword: e.target.value })} required />
+                    onChange={e => setFormData({ ...formData, confirmPassword: e.target.value })} required autoComplete="new-password" />
                   <button type="button" onClick={() => setShowConfirmPassword(!showConfirmPassword)} className="btn-icon-inside">
                     {showConfirmPassword ? <EyeOff size={16} /> : <Eye size={16} />}
                   </button>

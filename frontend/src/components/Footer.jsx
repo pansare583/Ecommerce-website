@@ -73,7 +73,7 @@ const Footer = () => {
           <div>
             <h4 style={{ fontWeight: 700, marginBottom: '0.75rem', color: '#2D1F5E', fontSize: '0.9rem' }}>Newsletter</h4>
             <p style={{ color: '#8B7BA8', fontSize: '0.8rem', marginBottom: '0.75rem' }}>Get exclusive deals & new arrivals straight to your inbox.</p>
-            <form onSubmit={handleSubscribe} style={{ display: 'flex', gap: '0.5rem' }}>
+            <form onSubmit={handleSubscribe} className="newsletter-form">
               <div style={{ position: 'relative', flex: 1 }}>
                 <Mail size={14} style={{ position: 'absolute', left: '0.75rem', top: '50%', transform: 'translateY(-50%)', color: '#A855F7' }} />
                 <input 

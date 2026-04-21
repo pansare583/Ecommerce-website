@@ -63,7 +63,17 @@ const Home = () => {
       .then(r => setProducts(r.data))
       .catch(() => addToast('Failed to load products', 'error'))
       .finally(() => setLoading(false));
-  }, [addToast]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [addToast]);
+
+  // Handle auto-scroll on search
+  useEffect(() => {
+    if (searchTerm) {
+      const el = document.getElementById('products');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [searchTerm]);
 
   const handleToggleWishlist = async (e, productId) => {
     e.stopPropagation();

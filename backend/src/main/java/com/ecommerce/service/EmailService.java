@@ -14,6 +14,9 @@ public class EmailService {
     @Autowired
     private JavaMailSender mailSender;
 
+    @org.springframework.beans.factory.annotation.Value("${spring.mail.username}")
+    private String fromEmail;
+
     @Async
     public void sendVerificationEmail(String to, String code) {
         String html = "<html><body style='font-family: Arial, sans-serif; padding: 20px;'>"
@@ -93,13 +96,16 @@ public class EmailService {
         try {
             MimeMessage message = mailSender.createMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(message, true, "UTF-8");
+            helper.setFrom("Trendify <" + fromEmail + ">");
             helper.setTo(to);
             helper.setSubject(subject);
             helper.setText(html, true);
             mailSender.send(message);
+            System.out.println("SUCCESS: Email sent to " + to);
         } catch (Exception e) {
             System.err.println("CRITICAL EMAIL ERROR: Failed to send email to " + to);
-            e.printStackTrace(); // यामुळे आपल्याला पूर्ण एरर डिटेल्स मिळतील
+            System.err.println("Error Message: " + e.getMessage());
+            e.printStackTrace(); 
         }
     }
 }

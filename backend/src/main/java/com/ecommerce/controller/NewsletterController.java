@@ -28,7 +28,8 @@ public class NewsletterController {
         }
 
         if (newsletterRepository.findByEmail(email).isPresent()) {
-            return ResponseEntity.ok(Map.of("message", "You are already subscribed!"));
+            emailService.sendNewsletterWelcome(email);
+            return ResponseEntity.ok(Map.of("message", "You are already subscribed! Sending you the welcome email again..."));
         }
 
         NewsletterSubscription subscription = NewsletterSubscription.builder()

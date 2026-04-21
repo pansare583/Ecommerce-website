@@ -70,18 +70,18 @@ const Login = () => {
           )}
 
           {!otpSent ? (
-            <form onSubmit={handleLogin}>
+            <form onSubmit={handleLogin} autoComplete="off">
               <div className="form-group">
                 <label className="form-label inline-icon"><Mail size={13} /> Email Address</label>
                 <input type="email" className="form-input" placeholder="name@example.com"
-                  value={email} onChange={e => setEmail(e.target.value)} required />
+                  value={email} onChange={e => setEmail(e.target.value)} required autoComplete="off" />
               </div>
               <div className="form-group">
                 <label className="form-label inline-icon"><Lock size={13} /> Password</label>
                 <div style={{ position: 'relative' }}>
                   <input type={showPass ? 'text' : 'password'} className="form-input"
                     placeholder="Enter your password" value={password}
-                    onChange={e => setPassword(e.target.value)} required />
+                    onChange={e => setPassword(e.target.value)} required autoComplete="new-password" />
                   <button type="button" onClick={() => setShowPass(!showPass)} className="btn-icon-inside">
                     {showPass ? <EyeOff size={16} /> : <Eye size={16} />}
                   </button>

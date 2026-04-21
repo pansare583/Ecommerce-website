@@ -110,7 +110,13 @@ const ProductDetail = () => {
         {/* ── Left: Image Gallery ── */}
         <div>
           <div className="glass-container" style={{
-            height: 440, display: 'flex', alignItems: 'center', justifyContent: 'center',
+            minHeight: 300, 
+            height: 'auto',
+            aspectRatio: '1/1',
+            maxHeight: 440,
+            display: 'flex', 
+            alignItems: 'center', 
+            justifyContent: 'center',
             position: 'relative', overflow: 'hidden',
             background: 'linear-gradient(135deg, rgba(205,180,255,0.15), rgba(255,200,221,0.12), rgba(189,224,254,0.15))',
             borderRadius: 28
