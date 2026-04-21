@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import { useNavigate, Link } from 'react-router-dom';
-import { UserPlus, Mail, Lock, User, Shield, CheckCircle, Sparkles } from 'lucide-react';
+import { UserPlus, Mail, Lock, User, Shield, CheckCircle, Sparkles, Eye, EyeOff } from 'lucide-react';
 import { useToast } from '../context/ToastContext';
 
 const Register = () => {
@@ -13,6 +13,9 @@ const Register = () => {
   const { register, verifyRegistration } = useContext(AuthContext);
   const { addToast } = useToast();
   const navigate = useNavigate();
+
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const handleSignup = async (e) => {
     e.preventDefault();
@@ -102,13 +105,25 @@ const Register = () => {
               </div>
               <div className="form-group">
                 <label className="form-label inline-icon"><Lock size={13} /> Password</label>
-                <input type="password" className="form-input" placeholder="Min 8 characters"
-                  value={formData.password} onChange={e => setFormData({ ...formData, password: e.target.value })} required />
+                <div style={{ position: 'relative' }}>
+                  <input type={showPassword ? 'text' : 'password'} className="form-input" 
+                    placeholder="Min 8 characters" value={formData.password} 
+                    onChange={e => setFormData({ ...formData, password: e.target.value })} required />
+                  <button type="button" onClick={() => setShowPassword(!showPassword)} className="btn-icon-inside">
+                    {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
+                  </button>
+                </div>
               </div>
               <div className="form-group">
                 <label className="form-label inline-icon"><Shield size={13} /> Confirm Password</label>
-                <input type="password" className="form-input" placeholder="Retype your password"
-                  value={formData.confirmPassword} onChange={e => setFormData({ ...formData, confirmPassword: e.target.value })} required />
+                <div style={{ position: 'relative' }}>
+                  <input type={showConfirmPassword ? 'text' : 'password'} className="form-input" 
+                    placeholder="Retype your password" value={formData.confirmPassword} 
+                    onChange={e => setFormData({ ...formData, confirmPassword: e.target.value })} required />
+                  <button type="button" onClick={() => setShowConfirmPassword(!showConfirmPassword)} className="btn-icon-inside">
+                    {showConfirmPassword ? <EyeOff size={16} /> : <Eye size={16} />}
+                  </button>
+                </div>
               </div>
               <button type="submit" className="btn-primary" disabled={loading} style={{ marginTop: '0.25rem' }}>
                 {loading ? 'Creating Account…' : '✨ Create Account'}
